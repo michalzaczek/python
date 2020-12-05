@@ -8,10 +8,19 @@ class Snake():
 
     def __init__(self):
 
+        self.create_snake()
+
+    def create_snake(self):
         self.squares = []
         for i in range(3):
             self.add_square(POSITIONS[i])
         self.head = self.squares[0]
+
+    def reset(self):
+        for s in self.squares:
+            s.reset()
+        self.squares.clear()
+        self.create_snake()
 
     def add_square(self, position):
         square = Turtle('square')
